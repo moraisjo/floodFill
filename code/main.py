@@ -12,6 +12,8 @@ except ImportError:
 Grid = List[List[int]]
 
 
+# Applies the Breadth-First Search (BFS) Flood Fill algorithm to fill a single connected region.
+# It starts at the 'start' coordinate and replaces all contiguous zeros (empty cells) with the specified 'color'.
 def flood_fill_region(grid: Grid, start: Tuple[int, int], color: int) -> bool:
     n_rows = len(grid)
     if n_rows == 0:
@@ -42,6 +44,9 @@ def flood_fill_region(grid: Grid, start: Tuple[int, int], color: int) -> bool:
     return True
 
 
+# Colors all connected regions (cells with value 0) in the grid, starting with the
+# region containing the 'start' point, and then iterating through the rest of the grid.
+# The coloring begins with color value 2.
 def color_all_regions(grid: Grid, start: Tuple[int, int]) -> Grid:
     current_color = 2
 
@@ -62,22 +67,9 @@ def color_all_regions(grid: Grid, start: Tuple[int, int]) -> Grid:
     return grid
 
 
+# Reads the grid dimensions, the grid data (integers), and the starting coordinates from standard input.
+# The format is expected to be: n m / <n lines of m integers> / x y.
 def read_input() -> Tuple[Grid, Tuple[int, int]]:
-    """
-    Formato de entrada (texto), compatível com o enunciado:
-
-    n m
-    <n linhas com m inteiros>
-    x y
-
-    Exemplo:
-    4 5
-    0 0 1 0 0
-    0 1 1 0 0
-    0 0 1 1 1
-    1 1 0 0 0
-    0 0
-    """
     first_line = input().strip().split()
     if len(first_line) != 2:
         raise ValueError("Primeira linha deve conter n e m.")
@@ -87,7 +79,8 @@ def read_input() -> Tuple[Grid, Tuple[int, int]]:
     for _ in range(n):
         row_values = list(map(int, input().strip().split()))
         if len(row_values) != m:
-            raise ValueError("Cada linha do grid deve conter exatamente m valores.")
+            raise ValueError(
+                "Cada linha do grid deve conter exatamente m valores.")
         grid.append(row_values)
 
     start_line = input().strip().split()
@@ -98,11 +91,13 @@ def read_input() -> Tuple[Grid, Tuple[int, int]]:
     return grid, (x, y)
 
 
+# Prints the 2D grid contents to the console, with values separated by spaces.
 def print_grid(grid: Grid) -> None:
     for row in grid:
         print(" ".join(str(v) for v in row))
 
 
+# Returns a fixed example grid and starting coordinate for quick testing purposes.
 def get_example_input() -> Tuple[Grid, Tuple[int, int]]:
     """Retorna o exemplo do enunciado, para testes rápidos."""
     grid = [
@@ -115,6 +110,8 @@ def get_example_input() -> Tuple[Grid, Tuple[int, int]]:
     return grid, start
 
 
+# Creates a Matplotlib ListedColormap object for visualization, mapping integer values
+# (0, 1, 2, 3, 4, etc.) to specific colors for better contrast.
 def build_colormap(max_value: int) -> ListedColormap:
     base_colors = [
         "#FFFFFF",  # 0 - branco (navegável)
@@ -142,6 +139,8 @@ def build_colormap(max_value: int) -> ListedColormap:
     return ListedColormap(colors)
 
 
+# Displays a visualization of the initial grid and the final, colored grid side-by-side
+# using Matplotlib, including a color bar for reference.
 def show_visualization(initial_grid: Grid, final_grid: Grid) -> None:
     if plt is None or ListedColormap is None:
         print("Aviso: matplotlib não está disponível; visualização desativada.")
@@ -172,6 +171,8 @@ def show_visualization(initial_grid: Grid, final_grid: Grid) -> None:
     plt.show()
 
 
+# Main execution function. Gets example input, runs the Flood Fill logic, prints results,
+# and displays the visualization.
 def main() -> None:
     # Usa um exemplo pré-configurado, sem entrada do usuário.
     grid, start = get_example_input()
