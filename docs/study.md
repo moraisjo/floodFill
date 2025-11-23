@@ -16,4 +16,4 @@ The Flood Fill algorithm is a widely used technique in computer graphics and ima
 <img src="/docs/images/seed-point.PNG" width="300">
 
 ## How it solves the problem]
-<img src="/docs/images/algorithm-explained.PNG" width="400">
+<img src="/docs/images/algorithm-explained.PNG" width="600">
