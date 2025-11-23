@@ -2,11 +2,20 @@
 This repo presents a Python implementation of the algorithm to automatically fill all connected regions in a 2D grid, using different colors for each area.
 
 
-[1. Understanding the algorithm](#understanding-the-algorithm)
+[1. What is the problem?](#what-is-the-problem)
 
-[2. How to run the project in Python 🐍](#how-to-run-the-project-in-python)
+[2. Understanding the algorithm](#understanding-the-algorithm)
 
-[3. Algorithm analysis](#algorithm-analysis)
+[3. How to run the project in Python 🐍](#how-to-run-the-project-in-python)
+
+[4. Algorithm analysis](#algorithm-analysis)
+
+---
+
+## What is the problem?
+The core problem  is finding all cells that are connected to a starting cell and meet a specific condition.
+
+![image](docs/images/problem-illustration.PNG)
 
 ## Understanding the algorithm
 To understand the algorithm, we did some studying and compiled my research in the [study](docs/study.md) file.
