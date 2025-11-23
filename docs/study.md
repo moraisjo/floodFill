@@ -1,7 +1,7 @@
 ## The algorithm
 The Flood Fill algorithm is a widely used technique in computer graphics and image processing to identify and fill connected regions within a multi-dimensional array or grid, often a 2D grid of pixels or cells.
 
-## How it solves the problem
+## Let's know the basics
 
 - Grid (or Map): the data structure is typically a 2D array, where each cell has a value (e.g., a color, a status like 'filled' or 'empty', or a number).
 
@@ -14,3 +14,6 @@ The Flood Fill algorithm is a widely used technique in computer graphics and ima
 - Goal: the algorithm starts at a given cell (seed point) and aims to change the color/value of all adjacent cells that belong to the same connected region until the boundary of that region is reached. This is often described as "filling" the region.
 
 <img src="/docs/images/seed-point.PNG" width="300">
+
+## How it solves the problem]
+<img src="/docs/images/algorithm-explained.PNG" width="400">
